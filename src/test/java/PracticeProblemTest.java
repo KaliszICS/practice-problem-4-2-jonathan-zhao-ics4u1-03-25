@@ -142,8 +142,9 @@ private Object createDog(String name, String breed, int weight) {
     void dogsetNameTest() {
         try {
             Class<?> dogClass = Class.forName("Dog");
+                Class<?>[] cArg = {String.class};
             Method method = dogClass.getDeclaredMethod("getName");
-        Method setMethod = dogClass.getDeclaredMethod("setName");
+        Method setMethod = dogClass.getDeclaredMethod("setName", String.class);
             Object dog = createDog("Fido", "Poodle", 15);
         setMethod.invoke(dog, "Monty");
             assertEquals("Monty", (String)method.invoke(dog));
@@ -162,7 +163,7 @@ private Object createDog(String name, String breed, int weight) {
         try {
             Class<?> dogClass = Class.forName("Dog");
             Method method = dogClass.getDeclaredMethod("getBreed");
-        Method setMethod = dogClass.getDeclaredMethod("setBreed");
+        Method setMethod = dogClass.getDeclaredMethod("setBreed", String.class);
             Object dog = createDog("Fido", "Poodle", 15);
         setMethod.invoke(dog, "Labrador");
             assertEquals("Labrador", (String)method.invoke(dog));
@@ -181,7 +182,7 @@ private Object createDog(String name, String breed, int weight) {
         try {
             Class<?> dogClass = Class.forName("Dog");
             Method method = dogClass.getDeclaredMethod("getWeight");
-        Method setMethod = dogClass.getDeclaredMethod("setWeight");
+        Method setMethod = dogClass.getDeclaredMethod("setWeight", int.class);
             Object dog = createDog("Fido", "Poodle", 15);
         setMethod.invoke(dog, 55);
             assertEquals(55, (int)method.invoke(dog));
@@ -355,7 +356,7 @@ private Object createDog(String name, String breed, int weight) {
         try {
             Class<?> carClass = Class.forName("Car");
             Method method = carClass.getDeclaredMethod("getPrice");
-                 Method setMethod = carClass.getDeclaredMethod("setPrice");
+                 Method setMethod = carClass.getDeclaredMethod("setPrice", double.class);
             Object car = createCar("Audi", "A4", 2020, 49999.99);
                 setMethod.invoke(car, 1);
             assertEquals(1.0, (double)method.invoke(car), 0.01);
@@ -374,7 +375,7 @@ private Object createDog(String name, String breed, int weight) {
         try {
             Class<?> carClass = Class.forName("Car");
             Method method = carClass.getDeclaredMethod("getMake");
-                 Method setMethod = carClass.getDeclaredMethod("setMake");
+                 Method setMethod = carClass.getDeclaredMethod("setMake", String.class);
             Object car = createCar("Audi", "A4", 2020, 49999.99);
                 setMethod.invoke(car, "Hyundai");
             assertEquals("Hyundai", (String)method.invoke(car));
@@ -393,7 +394,7 @@ private Object createDog(String name, String breed, int weight) {
         try {
             Class<?> carClass = Class.forName("Car");
             Method method = carClass.getDeclaredMethod("getModel");
-                 Method setMethod = carClass.getDeclaredMethod("setModel");
+                 Method setMethod = carClass.getDeclaredMethod("setModel", String.class);
             Object car = createCar("Audi", "A4", 2020, 49999.99);
                 setMethod.invoke(car, "Jetta");
             assertEquals("Jetta", (String)method.invoke(car));
@@ -412,7 +413,7 @@ private Object createDog(String name, String breed, int weight) {
         try {
             Class<?> carClass = Class.forName("Car");
             Method method = carClass.getDeclaredMethod("getYear");
-                 Method setMethod = carClass.getDeclaredMethod("setYear");
+                 Method setMethod = carClass.getDeclaredMethod("setYear", int.class);
             Object car = createCar("Audi", "A4", 2020, 49999.99);
                 setMethod.invoke(car, 2000);
             assertEquals(2000, (int)method.invoke(car));
