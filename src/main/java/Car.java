@@ -72,7 +72,7 @@ public class Car {
      * @param newModel // sets the new model of the car
      * 
      */
-    public void setMode(String newModel) {
+    public void setModel(String newModel) {
         this.model = newModel;
     }
 
