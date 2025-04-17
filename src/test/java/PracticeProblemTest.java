@@ -333,25 +333,6 @@ private Object createDog(String name, String breed, int weight) {
 
 @Test
     @DisplayName("")
-    void carGetPriceTest() {
-        try {
-            Class<?> carClass = Class.forName("Car");
-            Method method = carClass.getDeclaredMethod("getPrice");
-                 Method setMethod = carClass.getDeclaredMethod("setPrice");
-            Object car = createCar("Audi", "A4", 2020, 49999.99);
-                setMethod.invoke(car, 1);
-            assertEquals(1.0, (double)method.invoke(car), 0.01);
-        } catch (ClassNotFoundException e) {
-            fail("class does not exist");
-        } catch (NoSuchMethodException e) {
-            fail("method does not exist");
-        } catch (Exception e) {
-            fail("Something weird happened: " + e.getMessage());
-        }
-    }
-
-@Test
-    @DisplayName("")
     void carSetPriceTest() {
         try {
             Class<?> carClass = Class.forName("Car");
